@@ -1,0 +1,47 @@
+<div class="container">
+    <span style="font-size: 3em; color: white; border: 10px bold white;" (click)="goBack()">&larr;</span>
+    <!-- 
+        Title
+        artist name 1 2 
+        genre
+        file
+     -->
+
+    
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Title</span>
+        </div>
+        <input type="text" [(ngModel)]="title" class="form-control" id="basic-url" aria-describedby="basic-addon3"><!-- ngModel Directive for 2 way data binding -->>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Artist Name 1</span>
+        </div>
+        <input type="text" [(ngModel)]="artist1" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Artist Name 2</span>
+        </div>
+        <input type="text" [(ngModel)]="artist2" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Genre</span>
+        </div>
+        <input type="text" [(ngModel)]="genre" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">File</span>
+        </div>
+        <input type="file" name="file" class="form-control" id="file" aria-describedby="basic-addon3">
+    </div>
+
+    <button class="btn btn-outline-light" style="width: 100%;" (click)="uploadFile()">Upload song</button>
+</div>

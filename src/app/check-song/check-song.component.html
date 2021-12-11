@@ -1,0 +1,53 @@
+<div class="col-sm-12" style="padding: 16em;">
+    <!-- 
+        Title
+        artist name 1 2 
+        genre
+        file
+     -->
+     <span style="font-size: 3em; color: white; border: 10px bold white;" (click)="goBack()">&larr;</span>
+
+    <div class="col-sm-3">
+
+    </div>
+    <div class="input-group mb-3 col-sm-6">
+        <input type="file" class="form-control" id="file" aria-describedby="basic-addon3">
+        <br />
+
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+    <span style="color: white; font-size: 1em;">(*Upload any WAV file)</span>
+
+
+    <button class="btn btn-outline-light col-sm-6" style="width: 100%;" (click)="uploadFile()">Check song</button>
+
+    <div class="col-sm-3">
+
+    </div>
+
+    <div *ngIf="showLoading" style="color: white; font-size: 3em;">Loading...</div>
+
+    <div *ngIf="returnObj.segment_result.length!==0" style="display: flex; margin-top: 20px;" class="row" #resultBox>
+
+        <span  *ngFor="let obj of returnObj.segment_result" style="border:1px solid black; padding: 10px; width:70px"
+        
+            [ngClass]="{'bg-danger' : obj.CLASS=='red','bg-warning' : obj.CLASS=='yellow','bg-success' : obj.CLASS=='green'}">
+            <!-- <div matTooltip="Song Name: {{obj.SONG_NAME.toLocaleString()}}, Artist:{{obj.SONG_ARTIST.toLocaleString()}}" -->
+            <div [matTooltip]="getTooltipText(obj)"
+            matTooltipPosition = "above">
+                {{obj.INPUT_CONFIDENCE * 100 | number : '1.0-0'}}%
+            </div>
+        </span>
+        <div style="color: white; font-size: 2em;padding: 10px; margin-top: 20px;  white-space: normal;
+        "> Similarity of the whole song matching mostly with {{returnObj.result.SONG_NAME}} is {{returnObj.result.INPUT_CONFIDENCE * 100 | number : '1.0-0'}}%</div>
+
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+</div>
